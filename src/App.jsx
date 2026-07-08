@@ -294,11 +294,11 @@ function Modal({ title, onClose, children }) {
       onClick={onClose}
     >
       <div
-        className="fade-in w-full max-w-md rounded-lg p-5"
-        style={{ background: THEME.surface, border: `1px solid ${THEME.borderLight}` }}
+        className="fade-in w-full max-w-md rounded-lg flex flex-col"
+        style={{ background: THEME.surface, border: `1px solid ${THEME.borderLight}`, maxHeight: "85vh" }}
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="flex items-center justify-between mb-4">
+        <div className="flex items-center justify-between p-5 pb-4 flex-shrink-0">
           <h3 className="font-display text-lg" style={{ color: THEME.text }}>
             {title}
           </h3>
@@ -306,11 +306,13 @@ function Modal({ title, onClose, children }) {
             <X size={18} />
           </button>
         </div>
-        {children}
+        <div className="px-5 pb-5 overflow-y-auto">{children}</div>
       </div>
     </div>
   );
 }
+
+  
 
 function fieldStyle() {
   return {
